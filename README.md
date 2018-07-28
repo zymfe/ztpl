@@ -9,7 +9,7 @@
 ``` javascript
 <script type="text/javascript" src="ztpl.js"></script>
 <script type="text/javascript">
-	ztpl('#container',at data);
+	ztpl('#container', data);
 </script>
 ```
 ### （2）使用requireJs异步引入:
