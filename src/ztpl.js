@@ -13,18 +13,18 @@
   'use strict';
 
   let str = 'var r=[];\n';
-  const REG_OUT = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g;
+  const reg_out = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g;
 
   function ztpl (id, data) {
-    const ELE = document.querySelector(id);
-    if (!ELE) throw new Error('无效dom对象id'); 
-    let html = ELE.value;
+    const ele = document.querySelector(id);
+    if (!ele) throw new Error('无效dom对象id'); 
+    let html = ele.value;
     
-    const REG = /<%([^%>]+)?%>/g;
+    const reg = /<%([^%>]+)?%>/g;
     let idx = 0;
     let match = null;
 
-    while(match = REG.exec(html)) {
+    while(match = reg.exec(html)) {
       addStr(html.slice(idx, match.index))(match[1], true);
       idx = match.index + match[0].length;
     }
@@ -36,7 +36,7 @@
 
   function addStr (fragment, hasTplTab) {
     if (hasTplTab) {
-      str += fragment.match(REG_OUT) ? (fragment + '\n') : ('r.push(' + fragment + ');\n');
+      str += fragment.match(reg_out) ? (fragment + '\n') : ('r.push(' + fragment + ');\n');
     } else {
       str += fragment !== '' ? ('r.push("' + fragment.replace(/"/g, '\\"') + '");\n') : '';
     }
