@@ -2,7 +2,7 @@
  * Description: JavaScript模板引擎
  * User: zhaoyiming
  * Date: 2018/07/07
- * License: MIT, https://github.com/zymseo/ztpl
+ * License: MIT, https://github.com/zymfe/ztpl
  */
 
 ;(function (global, document, factory) {
